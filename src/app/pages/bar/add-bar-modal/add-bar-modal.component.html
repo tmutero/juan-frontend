@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>New Bar</h1>
+<form [formGroup]="bar_form" (ngSubmit)="onSubmit()">
+    
+<div mat-dialog-content>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Bar Name</label>
+              <input
+                type="text"
+                class="form-control"
+                aria-errormessage="nameError"
+                required="required"
+                formControlName="name"
+              />
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  f['name'].invalid &&
+                  (f['name'].touched || f['name'].dirty)
+                "
+                >Bar name is required.</small
+              >
+            </div>
+
+            <div class="form-group pt-3">
+              <label>Address</label>
+              <input
+                type="text"
+                class="form-control"
+                aria-errormessage="nameError"
+                required="required"
+                formControlName="address"
+              />
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  f['address'].invalid &&
+                  (f['address'].touched || f['address'].dirty)
+                "
+                >Address is required.</small
+              >
+            </div>
+
+            
+        </div>
+        </div>
+       
+                         
+</div>
+<div mat-dialog-actions>
+  
+  <button class="btn btn-secondary mx-2" (click)="onNoClick()">
+    Cancel
+  </button>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</div>
+</form> 

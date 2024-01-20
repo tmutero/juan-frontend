@@ -1,0 +1,95 @@
+<h1 mat-dialog-title>New Beverage</h1>
+<form [formGroup]="beverage_form" (ngSubmit)="onSubmit()">
+    
+<div mat-dialog-content>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                class="form-control"
+                aria-errormessage="nameError"
+                required="required"
+                formControlName="name"
+              />
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  f['name'].invalid &&
+                  (f['name'].touched || f['name'].dirty)
+                "
+                >Name is required.</small
+              >
+            </div>
+
+            <div class="form-group pt-3">
+              <label>Type</label>
+              <input
+                type="text"
+                class="form-control"
+                aria-errormessage="nameError"
+                required="required"
+                formControlName="type"
+              />
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  f['type'].invalid &&
+                  (f['type'].touched || f['type'].dirty)
+                "
+                >Type is required.</small
+              >
+            </div>
+
+            <div class="form-group pt-3">
+                <label>Alcohol Units</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  aria-errormessage="nameError"
+                  required="required"
+                  formControlName="alcoholUnits"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="
+                    f['alcoholUnits'].invalid &&
+                    (f['alcoholUnits'].touched || f['alcoholUnits'].dirty)
+                  "
+                  >Units is required.</small
+                >
+              </div>
+              <div class="form-group pt-3">
+                <label>Code Bar</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-errormessage="nameError"
+                  required="required"
+                  formControlName="codebar"
+                />
+                <small
+                  class="form-text text-danger"
+                  *ngIf="
+                    f['codebar'].invalid &&
+                    (f['codebar'].touched || f['codebar'].dirty)
+                  "
+                  >Code bar is required.</small
+                >
+              </div>
+
+            
+        </div>
+        </div>
+       
+                         
+</div>
+<div mat-dialog-actions>
+  
+  <button class="btn btn-secondary mx-2" (click)="onNoClick()">
+    Cancel
+  </button>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</div>
+</form> 

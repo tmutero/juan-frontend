@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>New Visit</h1>
+<form [formGroup]="stock_form" (ngSubmit)="onSubmit()">
+
+    <div mat-dialog-content>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Visited On</label>
+                    <input type="datetime-local" class="form-control" aria-errormessage="nameError" required="required"
+                        formControlName="visitedOn" />
+                    <small class="form-text text-danger" *ngIf="
+                  f['visitedOn'].invalid &&
+                  (f['visitedOn'].touched || f['visitedOn'].dirty)
+                ">Visited On is required.</small>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label>Quantity</label>
+                    <input type="number" class="form-control" aria-errormessage="nameError" required="required"
+                        formControlName="quantity" />
+                    <small class="form-text text-danger" *ngIf="
+                  f['quantity'].invalid &&
+                  (f['quantity'].touched || f['quantity'].dirty)
+                ">Quantity is required.</small>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label>Is it Happy Hour</label><br>
+                     <input type="radio" id="happy_hour" formControlName="happy_hour" value="true">
+                    <label for="html">Yes</label><br>
+                    <input type="radio" id="happy_hour" formControlName="happy_hour" value="false">
+                    <label for="css">No</label><br>
+                    <small class="form-text text-danger" *ngIf="
+                    f['happy_hour'].invalid &&
+                    (f['happy_hour'].touched || f['happy_hour'].dirty)
+                  ">Happy hour is required.</small>
+                </div>
+
+                <div class="form-group pt-3">
+                    <label>Bar</label>
+                    <select class="form-control" required="required" formControlName="bar_id">
+                        <option *ngFor="let b of bars" [value]="b.bar_id">{{b.name}}</option>
+                    </select>
+                    <small class="form-text text-danger" *ngIf="
+                f['bar_id'].invalid &&
+                (f['bar_id'].touched || f['bar_id'].dirty)
+              ">Bar is required.</small>
+                </div>
+                <div class="form-group pt-3">
+                    <label>Drink/Beverage</label>
+                    <select class="form-control" required="required" formControlName="stock_id">
+                        <option *ngFor="let s of stocks" [value]="s.stock_id">{{s.name}}</option>
+                    </select>
+                    <small class="form-text text-danger" *ngIf="
+                f['stock_id'].invalid &&
+                (f['stock_id'].touched || f['stock_id'].dirty)
+              ">Beverage is required.</small>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <div mat-dialog-actions>
+
+        <button class="btn btn-secondary mx-2" (click)="onNoClick()">
+            Cancel
+        </button>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
